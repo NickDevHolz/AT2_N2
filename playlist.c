@@ -27,7 +27,7 @@ int main() {
     do {
         displayMenu();
         scanf("%d", &choice);
-        getchar(); // Consume the newline character
+        getchar(); 
 
         if (choice == 1) {
             display(playlist);
@@ -37,10 +37,10 @@ int main() {
             char artist[100], song[100];
             printf("Nome do artista: ");
             fgets(artist, sizeof(artist), stdin);
-            artist[strcspn(artist, "\n")] = '\0'; // Remove the newline character
+            artist[strcspn(artist, "\n")] = '\0'; 
             printf("Nome da música: ");
             fgets(song, sizeof(song), stdin);
-            song[strcspn(song, "\n")] = '\0'; // Remove the newline character
+            song[strcspn(song, "\n")] = '\0'; 
             append(playlist, artist, song);
             savePlaylist(CAMINHOARQUIVO, playlist);
             printf("Música adicionada com sucesso.\n");
@@ -48,7 +48,7 @@ int main() {
             char song[100];
             printf("Nome da música a ser removida: ");
             fgets(song, sizeof(song), stdin);
-            song[strcspn(song, "\n")] = '\0'; // Remove the newline character
+            song[strcspn(song, "\n")] = '\0'; 
             if (removeSong(playlist, song)) {
                 savePlaylist(CAMINHOARQUIVO, playlist);
                 printf("Música removida com sucesso.\n");
@@ -59,7 +59,7 @@ int main() {
             char song[100];
             printf("Nome da música: ");
             fgets(song, sizeof(song), stdin);
-            song[strcspn(song, "\n")] = '\0'; // Remove the newline character
+            song[strcspn(song, "\n")] = '\0'; 
             Node* node = find(playlist, song);
             if (node) {
                 printf("Encontrado: %s - %s\n", node->artist, node->song);
